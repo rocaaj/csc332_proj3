@@ -23,7 +23,7 @@ const Home = () => {
     <div>
       {/* If logged in, show workout app */}
       {username ? (
-        <Timer username={username} />
+        <Timer username={username} onLogout={() => setUsername(null)} />
       ) : (
         // If not logged in, show login/register form
         <LoginRegister onLoginSuccess={setUsername} />
