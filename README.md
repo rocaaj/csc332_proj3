@@ -32,6 +32,18 @@ A full-stack web app that lets users create, save, and run customizable workout 
 
 ---
 
+## 🤝 Authors
+
+- **Backend:** Anthony Roca ([GitHub @rocaaj](https://github.com/rocaaj))
+- **Frontend:** Dario Santiago-Lopez ([GitHub @DarioSantiago](https://github.com/DarioSantiago))
+
+## 🙏 Acknowledgments
+
+- Built as part of the CSC 332/632: Mobile & Pervasive Computing course at Wake Forest University.
+- Special thanks to **ChatGPT by OpenAI** for coding assistance, architecture brainstorming, and documentation guidance throughout the project.
+
+---
+
 ## 📦 Getting Started
 
 ### Prerequisites
