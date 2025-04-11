@@ -48,10 +48,26 @@ A full-stack web app that lets users create, save, and run customizable workout 
 
 ### Prerequisites
 - Node.js & npm
-- MongoDB (local or Atlas)
+- mongodb-community@6.0
 
 ### Clone the repo
 
 ```bash
 git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
+```
+
+### Run the web-app
+- Open two different terminals
+- Frontend
+```bash
+cd client
+npm start
+```
+- Backend
+```bash
+cd server
+brew services start mongodb/brew/mongodb-community@6.0
+npm start
+```
+- Enjoy your workout!
