@@ -18,6 +18,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import ShakeHandler from '../components/ShakeHandler';
 import WorkoutForm from '../components/WorkoutForm'; 
+import { saveWorkout } from '../utils/api';
 
 // Main workout timer component
 const Timer = ({ username, onLogout }) => {
@@ -70,13 +71,27 @@ const Timer = ({ username, onLogout }) => {
     }, [timeLeft]);
   
     // Called when the user submits the workout form
-    const handleWorkoutSubmit = (exercises) => {
-      setWorkout(exercises);
-      setCurrentIndex(0);
-      setIsWorking(true);
-      setTimeLeft(exercises[0].work);
-      setHasStarted(false);
+const handleWorkoutSubmit = async (exercises) => {
+    // Build a workout object to send to the backend
+    const newWorkout = {
+      name: `Workout - ${new Date().toLocaleString()}`, // give it a unique name
+      exercises: exercises, // array of exercises from WorkoutForm
     };
+  
+    try {
+      await saveWorkout(newWorkout); // Save workout to MongoDB via backend
+      console.log('✅ Workout saved successfully');
+    } catch (error) {
+      console.error('❌ Failed to save workout:', error);
+    }
+  
+    // Then set workout state and begin prep for countdown
+    setWorkout(exercises);
+    setCurrentIndex(0);
+    setIsWorking(true);
+    setTimeLeft(exercises[0].work);
+    setHasStarted(false);
+  };
   
     // Start the workout
     const handleStart = () => {
